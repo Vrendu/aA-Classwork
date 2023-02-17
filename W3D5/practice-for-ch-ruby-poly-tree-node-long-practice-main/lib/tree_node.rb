@@ -28,14 +28,32 @@ class PolyTreeNode
     end
 
     def add_child(child_node) 
+        child_node.parent = self
 
     end 
 
-    def remove_child(childe_node)
-
+    def remove_child(child_node)
+        raise 'not a child' if child_node.parent == nil 
+        child_node.parent = nil
     end 
+    def dfs(target_value)
+        return self if self.value == target_value
 
-
+        children.each do |child|
+            result = child.dfs(target_value)
+            return result unless result.nil?
+        end
+        nil
+    end
+    def bfs(target_value)
+        node_queue = [self]
+        until node_queue.empty?
+            node = node_queue.shift
+            return node if node.value == target_value
+            node_queue.concat(node.children)
+        end
+        nil
+    end
 end
 
 # n1 = PolyTreeNode.new("root1")
