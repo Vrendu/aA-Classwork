@@ -64,7 +64,7 @@ module Slideable
            
             if row > 7 || row < 0 || col > 7 || col < 0 || @board[[row,col]].color == self.color 
                 break  
-            elsif @board[[row,col]] != nil && @board[[row,col]].color != self.color  
+            elsif @board[[row,col]].color != self.color && @board[[row, col]].color != nil
                 moves << [row,col]
                 break   
             else   

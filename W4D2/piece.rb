@@ -1,7 +1,6 @@
-# require_relative 'board'
 
 class Piece 
-#include Slideable, Stepable
+
     attr_reader :color, :board, :pos
 
 
