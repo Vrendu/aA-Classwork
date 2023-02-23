@@ -93,5 +93,15 @@ class Cursor
   end
 
   def update_pos(diff)
+    dx, dy = diff
+
+    if @cursor_pos[0] + dx >= 0 || @cursor_pos[0] + dx <= 7
+      @cursor_pos[0] += dx
+    end
+
+    if @cursor_pos[1] + dy >= 0 || @cursor_pos[1] + dy <= 7
+      @cursor_pos[1] += dy
+    end
+
   end
 end
